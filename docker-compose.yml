@@ -12,10 +12,14 @@ services:
       - mongo
     volumes:
       - cdn:/var/www/cdn/bookcars
+      - ./bookcars.crt:/etc/ssl/bookcars.crt
+      - ./bookcars.key:/etc/ssl/bookcars.key
+      - ./bookcars.pem:/etc/ssl/bookcars.pem
+      - ./rootCA.crt:/etc/ssl/bookcars.ca.crt
 
   mongo:
     image: mongo:latest
-    command: mongod --quiet --logpath /dev/null
+    command: mongod --tlsMode requireTLS --tlsCertificateKeyFile /etc/ssl/mongodb.pem --tlsCAFile /etc/ssl/rootCA.crt
     restart: always
     environment:
       # Provide your credentials here
@@ -23,6 +27,10 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: PASSWORD
     ports:
       - 27017:27017
+    volumes:
+      - ./mongodb.pem:/etc/ssl/mongodb.pem
+      - ./rootCA.crt:/etc/ssl/rootCA.crt
+      - ./bookcars.pem:/etc/ssl/bookcars.pem
 
   backend:
     build: 
@@ -32,6 +40,9 @@ services:
       - api
     ports:
       - 3001:3001
+    volumes:
+      - ./bookcars.crt:/etc/ssl/bookcars.crt
+      - ./bookcars.key:/etc/ssl/bookcars.key
 
   frontend:
     build: 
@@ -41,8 +52,11 @@ services:
       - api
     ports:
       - 80:80
+      - 443:443
     volumes:
       - cdn:/var/www/cdn/bookcars
+      - ./bookcars.crt:/etc/ssl/bookcars.crt
+      - ./bookcars.key:/etc/ssl/bookcars.key
 
 volumes:
   cdn:
