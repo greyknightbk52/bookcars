@@ -24,9 +24,9 @@
 - `docker compose up mongo`
 - Use `mongosh` CLI tool to connect to DB
   - From host
-  `mongosh --tls --tlsCAFile ./rootCA.crt --tlsCertificateKeyFile ./bookcars.pem`
+  `mongosh --tls --tlsCAFile ./rootCA.crt --tlsCertificateKeyFile ./bookcars.pem -u admin -p PASSWORD`
   - From inside the DB container
-  `mongosh --tls --tlsCAFile /etc/ssl/rootCA.crt --tlsCertificateKeyFile /etc/ssl/bookcars.pem`
+  `mongosh --tls --tlsCAFile /etc/ssl/rootCA.crt --tlsCertificateKeyFile /etc/ssl/bookcars.pem -u admin -p PASSWORD`
 
 # Start `api` service to test connection from mongoose
 - `docker compose up api`
@@ -40,5 +40,7 @@
 - ensure all certificates valid to browser without trust issue
 
 # Restore demo database
+- https://github.com/aelassas/bookcars/wiki/Demo-Database
 - Use `mongorestore` in tool set mongo database tools at https://www.mongodb.com/try/download/database-tools
   - `mongorestore --ssl --sslCAFile ../rootCA.crt --sslPEMKeyFile ../bookcars.pem --verbose --drop --gzip --host=127.0.0.1 --port=27017 --username=admin --password=PASSWORD --authenticationDatabase=admin --nsInclude="bookcars.*" --archive=bookcars.gz`
+- Copy images to `cdn` docker volume

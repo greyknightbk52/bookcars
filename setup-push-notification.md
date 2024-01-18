@@ -1,0 +1,16 @@
+- https://github.com/aelassas/bookcars/wiki/Run-Mobile-App#push-notifications
+  - Enable Cloud Messaging API (legacy)
+    - https://console.firebase.google.com/project/bookcars-80db8/settings/cloudmessaging/android:com.bookcars
+    - get server key to setup on expo account
+- Update `mobile/app.json`
+  - `owner`
+  - `projectId`
+- create `keystore.jks` file for android app signing when setup expo project credentials for android app `com.bookcars`
+  - https://expo.dev/accounts/ittranducloc/projects/bookcars/credentials
+  - `keytool -genkey -v -keystore keystore.jks -alias alias_name -keyalg RSA -keysize 2048 -validity 10000`
+  - follow prompts
+- online test tool
+  - https://expo.dev/notifications
+- create access token for `api` service to send push notifications
+  - https://expo.dev/accounts/ittranducloc/settings/access-tokens
+  - update `BC_EXPO_ACCESS_TOKEN` on `api/.env.docker`

@@ -57,6 +57,8 @@ services:
       - cdn:/var/www/cdn/bookcars
       - ./bookcars.crt:/etc/ssl/bookcars.crt
       - ./bookcars.key:/etc/ssl/bookcars.key
+      - ./frontend/nginx.conf:/etc/nginx/conf.d/default.conf
+
 
 volumes:
   cdn:

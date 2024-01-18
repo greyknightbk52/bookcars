@@ -1,0 +1,12 @@
+- Use free quota of mailchimp
+- Send Transactional email with mandrillapp of mailchimp
+- Buy domain ittranducloc.io.vn
+- Authorize the domain on mandrillapp
+  - Enable encryption
+  - Prove ownership
+- Update email of demo account `jdoe@bookcars.ma` to `jdoe@ittranducloc.io.vn`
+- Verify notification sent by email for user activity
+  - Login to updated account
+  - Make a new booking
+  - Check outbound report on https://mandrillapp.com/activity
+  - See statuses of two emails (for supplier and driver), `received` for `jdoe@ittranducloc.io.vn` and `rejected` for `***@bookcars.ma` due to validation on mandrillapp

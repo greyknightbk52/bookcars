@@ -1,7 +1,17 @@
 server {
     listen 80;
+    return 301 https://$host$request_uri;
+}
+server {
+    listen 443 ssl;
     root /usr/share/nginx/html;
     index index.html;
+
+    ssl_certificate_key /etc/ssl/bookcars.key;
+    ssl_certificate /etc/ssl/bookcars.crt;
+
+    access_log /var/log/nginx/frontend.access.log;
+    error_log /var/log/nginx/frontend.error.log;
 
     location / {
       # First attempt to serve request as file, then as directory,

@@ -5,7 +5,9 @@
     "version": "2.7.0",
     "slug": "bookcars",
     "icon": "./assets/icon.png",
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "splash": {
       "backgroundColor": "#f37022",
       "image": "./assets/splash.png"
@@ -34,11 +36,14 @@
       },
       "bundleIdentifier": "com.bookcars"
     },
-    "plugins": ["expo-localization", "./plugins/usesCleartextTraffic"],
-    "owner": "aelassas",
+    "plugins": [
+      "expo-localization",
+      "./plugins/usesCleartextTraffic"
+    ],
+    "owner": "ittranducloc",
     "extra": {
       "eas": {
-        "projectId": "fe1ab335-41ae-4a35-960b-0052b493db49"
+        "projectId": "aa0c1745-5ea7-40f5-a744-b1c02d68ed1c"
       }
     },
     "updates": {
