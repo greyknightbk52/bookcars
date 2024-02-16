@@ -44,3 +44,7 @@
 - Use `mongorestore` in tool set mongo database tools at https://www.mongodb.com/try/download/database-tools
   - `mongorestore --ssl --sslCAFile ../rootCA.crt --sslPEMKeyFile ../bookcars.pem --verbose --drop --gzip --host=127.0.0.1 --port=27017 --username=admin --password=PASSWORD --authenticationDatabase=admin --nsInclude="bookcars.*" --archive=bookcars.gz`
 - Copy images to `cdn` docker volume
+
+# ngrok
+- Support https for plain api service
+  - `ngrok http http://localhost:4002 --domain tops-apt-jaybird.ngrok-free.app`

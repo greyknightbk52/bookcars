@@ -57,6 +57,8 @@ services:
       - cdn:/var/www/cdn/bookcars
       - ./bookcars.crt:/etc/ssl/bookcars.crt
       - ./bookcars.key:/etc/ssl/bookcars.key
+      # - ./ittranducloc.io.vn/merged_certificate.crt:/etc/ssl/bookcars.crt
+      # - ./ittranducloc.io.vn/private.key:/etc/ssl/bookcars.key
       - ./frontend/nginx.conf:/etc/nginx/conf.d/default.conf
 
 
